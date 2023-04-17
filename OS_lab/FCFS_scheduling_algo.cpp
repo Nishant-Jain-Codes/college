@@ -1,7 +1,5 @@
-//WAP to calculate average waitingtime andaverage turnaround time using FCFS scheduling algorithm  
-#include<bits/stdc++.h>
+ #include<bits/stdc++.h>
 using namespace std;
-
     bool comp(pair<int,int> p1, pair<int,int> p2){
         return p1.first<=p2.first;
     }
@@ -49,8 +47,8 @@ using namespace std;
         int cpu_eff = ((cpu_total_run_time - cpu_idle_time)*100.0)/cpu_total_run_time;
         float average_WT = (totalWaitTime*(1.0)) / Pn.size();
         float average_TAT = (total_TAT*(1.0))/Pn.size();
-        cout<<" average wait time = "<<average_WT<<endl;
-        cout<<" average Turn Around Time = "<<average_TAT<<endl;
+        cout<<" average wait time = "<<average_WT<<"units"<<endl;
+        cout<<" average Turn Around Time = "<<average_TAT<<"units"<<endl;
         cout<<" CPU utilisation % = "<<cpu_eff<<"%"<<endl;
     }
 
