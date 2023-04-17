@@ -34,7 +34,8 @@ using namespace std;
                 totalWaitTime+=curWt;
             }
             if(curAt>timePassed){
-                cpu_idle_time += curAt-timePassed;
+                cpu_idle_time += (curAt-timePassed);
+                timePassed += (curAt-timePassed);
             }
             timePassed+=curBt;
             curTAT = curWt + curBt;
@@ -43,12 +44,14 @@ using namespace std;
             i++;
         }
         cout<<Pn.size()<<endl;
-        int cpu_total_run_time = total_TAT;
+        int cpu_total_run_time = timePassed;
         int cpu_eff = ((cpu_total_run_time - cpu_idle_time)*100.0)/cpu_total_run_time;
         float average_WT = (totalWaitTime*(1.0)) / Pn.size();
         float average_TAT = (total_TAT*(1.0))/Pn.size();
-        cout<<" average wait time = "<<average_WT<<"units"<<endl;
-        cout<<" average Turn Around Time = "<<average_TAT<<"units"<<endl;
+        cout<<" average wait time = "<<average_WT<<" units"<<endl;
+        cout<<" average Turn Around Time = "<<average_TAT<<" units"<<endl;
+        cout<<"total cpu runtime = "<<cpu_total_run_time<<" units"<<endl;
+        cout<<"total cpu idletime = "<<cpu_idle_time<<" units"<<endl;
         cout<<" CPU utilisation % = "<<cpu_eff<<"%"<<endl;
     }
 
