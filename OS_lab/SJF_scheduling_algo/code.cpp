@@ -49,15 +49,15 @@ Process scheduler(int curTime, vector<Process> &processes){
         int minAT = INT_MAX;
         int minATIndex=-1;
         for(int i=0;i<processes.size();i++){
-        if( processes[i].AT<minAT && !processes[i].executed){
-            minAT=processes[i].AT;
-            minATIndex=i;
-        }
-        processes[minATIndex].setST(processes[minATIndex].AT);
-        processes[minATIndex].setTAT(processes[minATIndex].BT);
-        processes[minATIndex].setWt(0);
-        processes[minATIndex].setExecuted();
-    }
+            if( processes[i].AT<minAT && !processes[i].executed){
+                minAT=processes[i].AT;
+                minATIndex=i;
+            }
+            processes[minATIndex].setST(processes[minATIndex].AT);
+            processes[minATIndex].setTAT(processes[minATIndex].BT);
+            processes[minATIndex].setWt(0);
+            processes[minATIndex].setExecuted();
+        }   
     return processes[minATIndex];
     }
 }
