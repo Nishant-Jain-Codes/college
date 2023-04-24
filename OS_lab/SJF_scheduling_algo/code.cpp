@@ -43,6 +43,7 @@ Process scheduler(int curTime, vector<Process> &processes){
         processes[minBTIndex].setTAT(curTime+processes[minBTIndex].BT-processes[minBTIndex].AT);
         processes[minBTIndex].setWt(curTime - processes[minBTIndex].AT);
         processes[minBTIndex].setExecuted();
+        return processes[minBTIndex];
     }
     else {
         int minAT = INT_MAX;
@@ -56,11 +57,9 @@ Process scheduler(int curTime, vector<Process> &processes){
         processes[minATIndex].setTAT(processes[minATIndex].BT);
         processes[minATIndex].setWt(0);
         processes[minATIndex].setExecuted();
-        return processes[minATIndex];
     }
+    return processes[minATIndex];
     }
-    
-    return processes[minBTIndex];
 }
 
 int main(){
