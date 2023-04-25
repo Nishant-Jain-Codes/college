@@ -53,11 +53,11 @@ Process scheduler(int curTime, vector<Process> &processes){
                 minAT=processes[i].AT;
                 minATIndex=i;
             }
-            processes[minATIndex].setST(processes[minATIndex].AT);
-            processes[minATIndex].setTAT(processes[minATIndex].BT);
-            processes[minATIndex].setWt(0);
-            processes[minATIndex].setExecuted();
         }   
+        processes[minATIndex].setST(processes[minATIndex].AT);
+        processes[minATIndex].setTAT(processes[minATIndex].BT);
+        processes[minATIndex].setWt(0);
+        processes[minATIndex].setExecuted();
     return processes[minATIndex];
     }
 }
