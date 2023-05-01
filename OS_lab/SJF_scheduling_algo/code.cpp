@@ -33,10 +33,11 @@ Process scheduler(int curTime, vector<Process> &processes){
     int minBT=INT_MAX;
     int minBTIndex=-1;
     for(int i=0;i<processes.size();i++){
-        if(processes[i].AT<=curTime && processes[i].BT<minBT && !processes[i].executed){
+        if(processes[i].AT<curTime && processes[i].BT<minBT && !processes[i].executed){
             minBT=processes[i].BT;
             minBTIndex=i;
         }
+        
     }
     if(minBTIndex!=-1){
         processes[minBTIndex].setST(curTime);
@@ -50,6 +51,10 @@ Process scheduler(int curTime, vector<Process> &processes){
         int minATIndex=-1;
         for(int i=0;i<processes.size();i++){
             if( processes[i].AT<minAT && !processes[i].executed){
+                minAT=processes[i].AT;
+                minATIndex=i;
+            }
+            else if(processes[i].AT==minAT && processes[i].BT<processes[minATIndex].BT && !processes[i].executed){
                 minAT=processes[i].AT;
                 minATIndex=i;
             }
