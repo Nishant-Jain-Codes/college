@@ -1,6 +1,4 @@
 // smallest job first scheduling algorithm
-//TODO : add gantt chart
-//TODO : fix the idle time bug
 #include <bits/stdc++.h>
 using namespace std;
 class Process{
