@@ -75,3 +75,22 @@ int main(){
     m.allocateProcess();
     return 0;
 }
+
+// enter memory fragments No 2
+// 101
+// 220
+// enter process size No 5
+// 1
+// 50
+// 50
+// 100
+// 110
+// <><><><><><><><Best fit><><><><><><><>
+// process 1 is allocated to memory fragment 1 memory left 100
+// process 2 is allocated to memory fragment 1 memory left 50
+// process 3 is allocated to memory fragment 1 memory left 0
+// process 4 is allocated to memory fragment 2 memory left 120
+// process 5 is allocated to memory fragment 2 memory left 110
+// no of process allocated 5 out of 5
+// internal fragmentation 110 out of 321
+// external fragmentation 110 out of 321

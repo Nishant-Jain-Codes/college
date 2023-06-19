@@ -115,3 +115,42 @@ int main(){
     m.bestFit();
     return 0;
 }
+
+// enter memory fragments No 5
+// 100
+// 200
+// 300
+// 400
+// 500
+// enter process size No 7
+// 10
+// 20
+// 500
+// 250
+// 150
+// 5
+// 10
+// <><><><><><><><first fit><><><><><><><>
+// process 1 is allocated to memory fragment 1
+// process 2 is allocated to memory fragment 2
+// process 3 is allocated to memory fragment 5
+// process 4 is allocated to memory fragment 3
+// process 5 is allocated to memory fragment 4
+// no of process allocated 5 out of 7
+// internal fragmentation 570 out of 1500
+// <><><><><><><><Worst Fit><><><><><><><>
+// process 1 allocated to memory fragment 5
+// process 2 allocated to memory fragment 4
+// process 4 allocated to memory fragment 3
+// process 5 allocated to memory fragment 2
+// process 6 allocated to memory fragment 1
+// no of process allocated 5 out of 7
+// internal fragmentation 1065 out of 1500
+// <><><><><><><><Best fit><><><><><><><>
+// process 1 is allocated to memory fragment 1
+// process 2 is allocated to memory fragment 2
+// process 3 is allocated to memory fragment 5
+// process 4 is allocated to memory fragment 3
+// process 5 is allocated to memory fragment 4
+// no of process allocated 5 out of 7
+// internal fragmentation 570 out of 1500
