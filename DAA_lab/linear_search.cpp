@@ -36,6 +36,6 @@ int main(){
     input(nums,n,x);
     vector<int> ans;
     linearSearch(nums,0,x,ans);
-    printer(nums,"answer ...");
+    printer(ans,"answer ...");
     return 0;
 }
