@@ -14,27 +14,30 @@ def givePossibleMoves(curX,curY,maxX,maxY):
     overFlowY = curX-diffY # if y overflow
     if(diffX>=curY):#emptyting y in x
         moves.append([curX+curY,0])
-    else:
-        moves.append([maxX,overFlowX])
     if(diffY>=curX): #emptying x in y
         moves.append([0,curY+curX])
-    else:
-        moves.append([overFlowX,maxY])
+    if(overFlowY>0):
+        moves.append([overFlowY,maxY])
+    if(overFlowX>0):
+        moves.append([maxX,overFlowX])
         
     return moves
 def solve(n,m,d):
     visited = [[0]*(m+1) for i in range(n+1)]
     queue = []
     queue.append([0,0,0])
+    goalAchieved = False
     while(len(queue)):
         front = queue.pop(0)
         x,y,level=front[0],front[1],front[2]
         if(x==0 and y ==0):
             print("Starting  ! ! ! ! ! ! ")
+        # if not visited[x][y]:
         print(f"({x},{y}) @{level}")
         visited[x][y]=1
         if(x == d or y==d):
             print("goal achieved ! ! ! ! ! ! ")
+            goalAchieved = True
             break
         possibleMoves = givePossibleMoves(x,y,n,m)
         for move in possibleMoves:
@@ -43,6 +46,8 @@ def solve(n,m,d):
             if not visited[moveX][moveY]:
                 queue.append([moveX,moveY,level+1])
                 # visited[moveX][moveY] = 1
+    if not goalAchieved:
+        print("the goal cant be achieved ! ! ! ! ! ! ! ")
 
 # logical error giving wrong order of steps taken as it is bfs
 j1,j2,d = map(int , input("enter j1 , j2 , d\n").split())
