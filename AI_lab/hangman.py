@@ -1,10 +1,11 @@
 import random
+import os
 playing = True
 error = 0
 def wordsInput():
     words = [x.lower() for x in input("enter all the words\n").split()]
+    os.system('clear')
     return words
-
 def setInititalState(words):
     charFound = []
     word =  random.choice(words)
@@ -14,8 +15,7 @@ def handleCorrectInput(charFound,word):
     if len(charFound) == len(set(word)):
         print("YOU WON!!!!")
         global playing 
-        playing = False
-               
+        playing = False          
 def printCurrentState(charFound,word):
     for x in word:
         if x in charFound:
@@ -41,7 +41,7 @@ def handleInput(charFound,word):
             global playing
             playing = False
             print("GAME OVER!!!!")
-            print(word,"WAS the word")
+            print("'{word}' WAS the word")
         print()
 words = wordsInput()
 [charFound,word] = setInititalState(words)
